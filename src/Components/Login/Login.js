@@ -8,12 +8,15 @@ import {Container,
     Label,
     Button
 } from 'reactstrap';
+import {Link} from 'react-router-dom';
+import Header from './../Header';
 
-const Login = () => (
+const Login = (props) => (
     <Container>
+        <Header />
         <Row>
             <Col md="4" className="column">
-                <Form>
+                <Form onSubmit={props.handleLogin}>
                     <FormGroup>
                         <Label for="email">Email</Label>
                         <Input type="email" name="email" id="email" />
