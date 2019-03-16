@@ -19,6 +19,7 @@ class LoginContainer extends Component {
 
         const result = await axios.get(`https://jsonplaceholder.typicode.com/users?email=${email}`);
         result.data.length && Cookies.set('token',email);   
+        //set some data to the store 
         this.props.history.push('/dashboard');
         
     }
