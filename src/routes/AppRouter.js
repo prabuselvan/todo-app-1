@@ -5,6 +5,7 @@ import Dashboard from './../Components/Dashboard/Dashboard';
 import Profile from './../Components/Profile/Profile';
 import NotFound from './../Components/NotFound';
 import PrivateRoute from './PrivateRoute';
+import Logout from './../Components/Logout';
 
 const AppRouter = () => {
     return (
@@ -13,6 +14,7 @@ const AppRouter = () => {
                 <Route exact path="/" component={Login} />
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
                 <PrivateRoute path="/profile" component={Profile} />
+                <PrivateRoute path="/logout" component={Logout} />
                 <Route component={NotFound} />
             </Switch>
         </BrowserRouter>
