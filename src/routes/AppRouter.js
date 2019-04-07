@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Login from './../Components/Login/LoginContainer';
 import Dashboard from './../Components/Dashboard/Dashboard';
-import Profile from './../Components/Profile/Profile';
+import Profile from './../Components/Profile/ProfileContainer';
 import NotFound from './../Components/NotFound';
 import PrivateRoute from './PrivateRoute';
 import Logout from './../Components/Logout';

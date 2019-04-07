@@ -9,11 +9,9 @@ import {Container,
     Button
 } from 'reactstrap';
 import {Link} from 'react-router-dom';
-import Header from './../Header';
 
 const Login = (props) => (
     <Container>
-        <Header />
         <Row>
             <Col md="4" className="column">
                 <Form onSubmit={props.handleLogin}>

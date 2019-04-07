@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import actions from './Actions';
 import Login from './Login';
 import axios from 'axios';
@@ -9,6 +10,7 @@ class LoginContainer extends Component {
 
     constructor(props) {
         super(props);
+
     }
     handleLogin = async(e) => {
         e.preventDefault(); 
@@ -31,15 +33,17 @@ class LoginContainer extends Component {
     }
 
     componentDidUpdate() {
-        this.props.user.id && this.props.history.push('/dashboard');
+        // this.props.user.id && this.props.history.push('/dashboard');
     }
 
     render() {
-        return(
+        return this.props.user.id ? <Redirect to="/dashboard" /> : (
             <Login 
                 handleLogin = {this.handleLogin}
             />
         );
+
+        // return <Login handleLogin = {this.handleLogin} />
     }
 }
 

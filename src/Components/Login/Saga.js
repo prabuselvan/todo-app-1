@@ -9,11 +9,11 @@ function* userLogin(action) {
     const result = yield call(axios.get,`https://jsonplaceholder.typicode.com/users?email=${action.payload}`);
     console.log('response form api',result);
     if(result.data.length) {
-        yield put(actions.updateUserData(result.data[0]));
         Cookies.set('token',action.payload);
+        yield put(actions.updateUserData(result.data[0]));
     } else {
-        yield put(actions.updateUserData({}));
         Cookies.remove('token');
+        yield put(actions.updateUserData({}));
     }
 }
 
