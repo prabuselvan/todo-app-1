@@ -21,8 +21,7 @@ class AddTodoContainer extends Component {
         e.preventDefault();
         const {todo} = this.state;
         const {id} = this.props.user;
-        console.log('todo',todo);
-        console.log('id',id);
+     
         this.setState({todo: ''});
         if(todo){
             this.props.createTodo({
