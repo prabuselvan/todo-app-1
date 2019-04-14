@@ -7,7 +7,7 @@ const TodoList = (props) => {
         <Row>
             <Col md="8" className="add-todo">
             {
-                props.todos.map(todo => <Todo todo={todo}/>)    
+                props.todos.map((todo,index) => <Todo key={index} todo={todo}/>)    
             }
             </Col>
         </Row>
