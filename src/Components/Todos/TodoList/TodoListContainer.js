@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
+import actions from './../Actions';
 import TodoList from './TodoList';
 
 class TodoListContainer extends Component {
@@ -8,9 +9,13 @@ class TodoListContainer extends Component {
 
     }
 
+    handleTodoCompleted = (id) => {
+        this.props.markCompleted(id);
+    }
+
     render() {
         return(
-            <TodoList todos={this.props.todos}/>
+            <TodoList todos={this.props.todos} handleTodoCompleted={this.handleTodoCompleted} />
         )
     }
 }
@@ -19,4 +24,8 @@ const mapStateToProps = (state) => {
     return state;
 }
 
-export default connect(mapStateToProps)(TodoListContainer);
+const mapDispatchToProps = {
+    markCompleted: actions.markCompleted
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(TodoListContainer);

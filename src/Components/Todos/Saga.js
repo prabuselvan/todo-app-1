@@ -20,7 +20,17 @@ function* createTodo(action) {
 
 }
 
+function* markCompleted(action){
+    const id = action.payload;
+    const result = yield call(axios.patch,`https://jsonplaceholder.typicode.com/todos/${id}`,{
+        completed: true
+    });
+    
+    yield put(actions.updateStore(id));
+}
+
 //watcher saga
 export default function* watcherSaga() {
     yield takeEvery(actions.CREATE_TODO,createTodo);
+    yield takeEvery(actions.MARK_COMPLETED,markCompleted);
 }

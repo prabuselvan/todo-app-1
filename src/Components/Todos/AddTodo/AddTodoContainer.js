@@ -23,10 +23,13 @@ class AddTodoContainer extends Component {
         const {id} = this.props.user;
         console.log('todo',todo);
         console.log('id',id);
-        this.props.createTodo({
-            id,
-            todo
-        });
+        this.setState({todo: ''});
+        if(todo){
+            this.props.createTodo({
+                id,
+                todo
+            });
+        }
         
 
     }
